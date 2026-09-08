@@ -29,6 +29,8 @@ See README.md for detailed configuration and usage instructions.
     'author': 'MD ERP Solutions',
     'support': 'mrdudedeg@gmail.com',
     'license': 'OPL-1',
+    'price': 49.00,
+    'currency': 'USD',
 
     'depends': [
         'sale',
