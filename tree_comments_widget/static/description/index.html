@@ -1,7 +1,7 @@
 <section style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #1b2b2b; max-width: 1140px; margin: 0 auto;">
 
     <!-- Hero -->
-    <div style="background: linear-gradient(160deg, #6f8cff 0%, #3a1f6e 100%); border-radius: 14px; padding: 40px; color: #ffffff; position: relative; overflow: hidden;">
+    <div style="background-color: #3a1f6e; background: linear-gradient(160deg, #6f8cff 0%, #3a1f6e 100%); border-radius: 14px; padding: 40px; color: #ffffff; position: relative; overflow: hidden;">
         <table style="width: 100%; border-collapse: collapse;">
             <tr>
                 <td style="vertical-align: middle; width: 60%;">
@@ -89,7 +89,7 @@
     <div style="background: #f6f4fc; border-radius: 12px; padding: 22px 26px; margin-bottom: 16px;">
         <div style="font-weight: 700; margin-bottom: 8px; color: #3a1f6e;">1. Inherit the mixin in your Python model</div>
         <p style="font-size: 13px; color: #5b6b78; margin-bottom: 12px;">The mixin already bundles <code>mail.thread</code>, so this works even on models with no chatter today &mdash; for example <code>sale.order.line</code>, which has no <code>mail.thread</code> of its own in Odoo core.</p>
-        <pre style="background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0;">from odoo import models, fields
+        <pre style="background: #f4f4f8; color: #2b2d42; border: 1px solid #dcdce6; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0;">from odoo import models, fields
 
 class SaleOrderLine(models.Model):
     _name    = 'sale.order.line'
@@ -100,7 +100,7 @@ class SaleOrderLine(models.Model):
     <div style="background: #eef5ff; border-radius: 12px; padding: 22px 26px; margin-bottom: 16px;">
         <div style="font-weight: 700; margin-bottom: 8px; color: #0d3d75;">2. Add the field to the list view XML</div>
         <p style="font-size: 13px; color: #5b6b78; margin-bottom: 12px;">Place <code>comment_count</code> with <code>widget="comments_button"</code> inside the <code>&lt;list&gt;</code> tag.</p>
-        <pre style="background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0;">&lt;record id="view_order_line_tree" model="ir.ui.view"&gt;
+        <pre style="background: #f4f4f8; color: #2b2d42; border: 1px solid #dcdce6; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0;">&lt;record id="view_order_line_tree" model="ir.ui.view"&gt;
   &lt;field name="model"&gt;sale.order.line&lt;/field&gt;
   &lt;field name="arch" type="xml"&gt;
     &lt;list&gt;
@@ -117,12 +117,12 @@ class SaleOrderLine(models.Model):
 
     <div style="background: #fff8ea; border-radius: 12px; padding: 22px 26px;">
         <div style="font-weight: 700; margin-bottom: 8px; color: #7a5200;">3. Add this module as a dependency, then upgrade</div>
-        <pre style="background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0 0 12px 0;">{
+        <pre style="background: #f4f4f8; color: #2b2d42; border: 1px solid #dcdce6; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0 0 12px 0;">{
     'name': 'My Module',
     'depends': ['sale', 'tree_comments_widget'],
     'data': ['views/sale_order_line_views.xml'],
 }</pre>
-        <pre style="background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0;"># from your Odoo root
+        <pre style="background: #f4f4f8; color: #2b2d42; border: 1px solid #dcdce6; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0;"># from your Odoo root
 python odoo-bin -d &lt;your_db&gt; -u my_module --stop-after-init</pre>
     </div>
 
