@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="barcode_sale_order.ScanPanel">
+        <div class="o_barcode_panel card p-2 mb-2">
+            <div class="d-flex align-items-center gap-2">
+                <button type="button"
+                        class="btn"
+                        t-att-class="state.active ? 'btn-success' : 'btn-outline-secondary'"
+                        t-on-click="toggleActive">
+                    <i class="fa fa-camera me-1"/>
+                    <t t-if="state.active">Stop Barcode Scanning</t>
+                    <t t-else="">Start Barcode Scanning</t>
+                </button>
+                <span class="o_barcode_status">
+                    <t t-if="state.active">🟢 Barcode Scanner Active</t>
+                    <t t-else="">⚪ Barcode Scanner Inactive</t>
+                </span>
+                <span t-if="state.busy" class="fa fa-spin fa-spinner"/>
+            </div>
+
+            <div t-if="state.active" class="mt-2">
+                <BarcodeScanner onBarcodeScanned="(barcode) => this.onBarcodeScanned(barcode)"/>
+            </div>
+
+            <form t-if="state.active" class="d-flex gap-2 mt-2" t-on-submit="onManualSubmit">
+                <input type="text"
+                       class="o_barcode_manual_input form-control form-control-sm"
+                       placeholder="Or type a barcode manually"
+                       t-model="state.manualBarcode"
+                       autocomplete="off"
+                />
+                <button type="submit" class="btn btn-sm btn-secondary">Add</button>
+            </form>
+
+            <div t-if="state.lastBarcode" class="o_barcode_last_scan mt-2 text-muted small">
+                <div>Last scan: <span t-esc="state.lastBarcode"/></div>
+                <div t-if="state.productName">Product: <span t-esc="state.productName"/></div>
+                <div t-if="state.qty !== null">Quantity: <span t-esc="state.qty"/></div>
+            </div>
+        </div>
+    </t>
+
+</templates>

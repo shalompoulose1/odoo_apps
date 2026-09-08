@@ -1,0 +1,12 @@
+.o_barcode_panel {
+    max-width: 480px;
+
+    .o_barcode_status {
+        font-weight: 500;
+    }
+
+    .o_barcode_last_scan {
+        border-top: 1px solid var(--border-color, #dee2e6);
+        padding-top: 0.25rem;
+    }
+}
