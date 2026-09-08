@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- Button rendered in the tree/list cell -->
+    <t t-name="tree_comments_widget.CommentsButtonWidget">
+        <div class="tcw-comments-btn-wrapper" t-ref="wrapper">
+            <button class="btn btn-link p-0 tcw-comments-trigger"
+                    t-on-click.stop="togglePanel"
+                    title="Comments">
+                <i class="fa fa-comments fa-lg"/>
+                <span class="tcw-msg-badge">
+                    <t t-esc="props.record.data.comment_count"/>
+                </span>
+            </button>
+
+            <t t-if="state.open">
+                <CommentsPanel
+                    resId="props.record.resId"
+                    resModel="getModelName()"
+                    displayName="getDisplayName()"
+                    anchorRef="this.wrapperRef"
+                    onClose="() => this.closePanel()"
+                    onCommented="() => props.record.load()"
+                />
+            </t>
+        </div>
+    </t>
+
+    <!-- Floating popup -->
+    <t t-name="tree_comments_widget.CommentsPanel">
+        <div class="tcw-float-popup"
+             t-ref="popup"
+             t-att-style="popupStyle"
+             t-on-click.stop="">
+
+            <div class="tcw-float-arrow"/>
+
+            <!-- Header -->
+            <div class="tcw-float-header">
+                <span class="tcw-float-title">
+                    <i class="fa fa-comments me-1 text-primary"/>
+                    Comments
+                    <t t-if="props.displayName">
+                        <small class="text-muted ms-1">· <t t-esc="props.displayName"/></small>
+                    </t>
+                </span>
+                <button class="btn btn-link p-0 text-muted" t-on-click="props.onClose">
+                    <i class="fa fa-times"/>
+                </button>
+            </div>
+
+            <!-- Messages -->
+            <div class="tcw-float-body">
+                <div t-if="state.loading" class="text-center py-3 text-muted">
+                    <i class="fa fa-spinner fa-spin"/> Loading…
+                </div>
+                <div t-elif="!state.messages.length" class="text-center py-3 text-muted">
+                    <i class="fa fa-comment-o fa-2x mb-2"/>
+                    <div>No comments yet</div>
+                </div>
+                <t t-else="">
+                    <div t-foreach="state.messages" t-as="msg" t-key="msg.id"
+                         class="tcw-float-comment">
+                        <img t-att-src="'/web/image/res.partner/' + msg.author_id[0] + '/image_128'"
+                             class="tcw-float-avatar"
+                             onerror="this.src='/web/static/img/placeholder.png'"/>
+                        <div class="tcw-float-bubble">
+                            <div class="tcw-float-meta">
+                                <strong t-esc="msg.author_id[1]"/>
+                                <small class="text-muted" t-esc="formatDate(msg.date)"/>
+                            </div>
+                            <div class="tcw-float-text" t-esc="stripHtml(msg.body)"/>
+                        </div>
+                    </div>
+                </t>
+            </div>
+
+            <!-- Input -->
+            <div class="tcw-float-footer">
+                <!-- @mention dropdown (appears above textarea) -->
+                <div t-if="showMentions" class="tcw-mention-dropdown">
+                    <div t-foreach="state.mentionUsers" t-as="user" t-key="user.id"
+                         class="tcw-mention-item"
+                         t-att-class="{ 'tcw-mention-active': user_index === state.mentionIndex }"
+                         t-on-mousedown.prevent="() => this.selectMention(user)">
+                        <img t-att-src="'/web/image/res.partner/' + user.id + '/image_128'"
+                             class="tcw-mention-avatar"
+                             onerror="this.src='/web/static/img/placeholder.png'"/>
+                        <span t-esc="user.name"/>
+                    </div>
+                </div>
+
+                <textarea class="form-control tcw-float-input"
+                          placeholder="Add a comment… (Ctrl+Enter, type @ to mention)"
+                          t-ref="textarea"
+                          t-model="state.draft"
+                          t-on-input="onInput"
+                          t-on-keydown="onKeydown"
+                          rows="2"/>
+                <div class="d-flex justify-content-end mt-2 gap-2">
+                    <button class="btn btn-sm btn-outline-secondary"
+                            t-on-click="props.onClose">Cancel</button>
+                    <button class="btn btn-sm btn-primary"
+                            t-on-click="postComment"
+                            t-att-disabled="!state.draft.trim() or state.posting">
+                        <i t-if="state.posting" class="fa fa-spinner fa-spin me-1"/>
+                        <i t-else="" class="fa fa-paper-plane me-1"/>
+                        Comment
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </t>
+
+</templates>

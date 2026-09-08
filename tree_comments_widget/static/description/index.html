@@ -1,0 +1,173 @@
+<section style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #1b2b2b; max-width: 1140px; margin: 0 auto;">
+
+    <!-- Hero -->
+    <div style="background: linear-gradient(160deg, #6f8cff 0%, #3a1f6e 100%); border-radius: 14px; padding: 40px; color: #ffffff; position: relative; overflow: hidden;">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="vertical-align: middle; width: 60%;">
+                    <h1 style="font-size: 34px; font-weight: 800; margin: 0 0 10px 0; line-height: 1.2;">
+                        Tree Comments Widget
+                    </h1>
+                    <div style="width: 90px; height: 4px; background: #ffb020; margin: 12px 0 18px 0;"></div>
+                    <p style="font-size: 16px; color: #e3ddfa; margin: 0 0 18px 0;">
+                        See and post comments on any record, right from the list view.<br/>
+                        One mixin, one field widget &mdash; no page navigation required.
+                    </p>
+                    <span style="display: inline-block; background: #ffb020; color: #3a2a00; font-weight: 800; font-size: 15px; padding: 8px 18px; border-radius: 20px;">
+                        $29.00 &mdash; one-time
+                    </span>
+                </td>
+                <td style="vertical-align: middle; text-align: center;">
+                    <img src="icon.png" width="140" height="140" alt="Tree Comments Widget"
+                         style="border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Feature strip -->
+    <table style="width: 100%; border-collapse: collapse; margin-top: 28px;">
+        <tr>
+            <td style="width: 25%; padding: 18px; text-align: center;">
+                <div style="width: 56px; height: 56px; border-radius: 50%; background: #e7f1ff; margin: 0 auto 12px auto; line-height: 56px; font-size: 26px; color: #0d6efd;">&#128203;</div>
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">Generic Mixin</div>
+                <div style="font-size: 13px; color: #5b6b78;">Works on any model &mdash; inherit one mixin and you're done.</div>
+            </td>
+            <td style="width: 25%; padding: 18px; text-align: center;">
+                <div style="width: 56px; height: 56px; border-radius: 50%; background: #f1ecfb; margin: 0 auto 12px auto; line-height: 56px; font-size: 26px; color: #6f42c1;">&#128172;</div>
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">Floating Popup</div>
+                <div style="font-size: 13px; color: #5b6b78;">Smart-positioned panel that auto-avoids screen edges.</div>
+            </td>
+            <td style="width: 25%; padding: 18px; text-align: center;">
+                <div style="width: 56px; height: 56px; border-radius: 50%; background: #fff6e5; margin: 0 auto 12px auto; line-height: 56px; font-size: 26px; color: #ffb020;">&#9889;</div>
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">Post Inline</div>
+                <div style="font-size: 13px; color: #5b6b78;">Ctrl+Enter posts a comment &mdash; no form view needed.</div>
+            </td>
+            <td style="width: 25%; padding: 18px; text-align: center;">
+                <div style="width: 56px; height: 56px; border-radius: 50%; background: #e8f7ef; margin: 0 auto 12px auto; line-height: 56px; font-size: 26px; color: #198754;">&#128290;</div>
+                <div style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">Live Badge</div>
+                <div style="font-size: 13px; color: #5b6b78;">Comment count updates immediately after posting.</div>
+            </td>
+        </tr>
+    </table>
+
+    <!-- How it works -->
+    <h2 style="font-size: 22px; font-weight: 700; margin: 36px 0 18px 0; color: #3a1f6e;">How it works</h2>
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <td style="width: 25%; padding: 10px; vertical-align: top;">
+                <div style="background: #0d6efd; color: white; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; font-weight: 700; margin-bottom: 10px;">1</div>
+                <div style="font-weight: 600; margin-bottom: 4px;">Inherit the mixin</div>
+                <div style="font-size: 13px; color: #5b6b78;">Add <code>tree.comments.mixin</code> to any model's <code>_inherit</code> list.</div>
+            </td>
+            <td style="width: 25%; padding: 10px; vertical-align: top;">
+                <div style="background: #6f42c1; color: white; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; font-weight: 700; margin-bottom: 10px;">2</div>
+                <div style="font-weight: 600; margin-bottom: 4px;">Add the field</div>
+                <div style="font-size: 13px; color: #5b6b78;">Drop <code>comment_count</code> with <code>widget="comments_button"</code> into the list view.</div>
+            </td>
+            <td style="width: 25%; padding: 10px; vertical-align: top;">
+                <div style="background: #ffb020; color: white; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; font-weight: 700; margin-bottom: 10px;">3</div>
+                <div style="font-weight: 600; margin-bottom: 4px;">Depend on it</div>
+                <div style="font-size: 13px; color: #5b6b78;">Add <code>tree_comments_widget</code> to your module's <code>depends</code>.</div>
+            </td>
+            <td style="width: 25%; padding: 10px; vertical-align: top;">
+                <div style="background: #198754; color: white; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; font-weight: 700; margin-bottom: 10px;">4</div>
+                <div style="font-weight: 600; margin-bottom: 4px;">Upgrade &amp; go</div>
+                <div style="font-size: 13px; color: #5b6b78;">Upgrade the module &mdash; the Comments column appears instantly.</div>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Screenshot -->
+    <h2 style="font-size: 22px; font-weight: 700; margin: 36px 0 18px 0; color: #3a1f6e;">See it in action</h2>
+    <img src="demo_screenshot.png" style="width: 100%; display: block; border: 1px solid #dfe3e8; border-radius: 10px;" alt="Comments button and floating popup in a list view"/>
+    <div style="text-align: center; font-size: 14px; color: #5b6b78; margin-top: 8px;">Click the comments icon on any row to open the floating popup</div>
+
+    <!-- Developer guide -->
+    <h2 style="font-size: 22px; font-weight: 700; margin: 36px 0 18px 0; color: #3a1f6e;">Developer Guide</h2>
+
+    <div style="background: #f6f4fc; border-radius: 12px; padding: 22px 26px; margin-bottom: 16px;">
+        <div style="font-weight: 700; margin-bottom: 8px; color: #3a1f6e;">1. Inherit the mixin in your Python model</div>
+        <p style="font-size: 13px; color: #5b6b78; margin-bottom: 12px;">The mixin already bundles <code>mail.thread</code>, so this works even on models with no chatter today &mdash; for example <code>sale.order.line</code>, which has no <code>mail.thread</code> of its own in Odoo core.</p>
+        <pre style="background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0;">from odoo import models, fields
+
+class SaleOrderLine(models.Model):
+    _name    = 'sale.order.line'
+    _inherit = ['sale.order.line', 'tree.comments.mixin']
+    # tree.comments.mixin brings mail.thread with it &mdash; no extra step</pre>
+    </div>
+
+    <div style="background: #eef5ff; border-radius: 12px; padding: 22px 26px; margin-bottom: 16px;">
+        <div style="font-weight: 700; margin-bottom: 8px; color: #0d3d75;">2. Add the field to the list view XML</div>
+        <p style="font-size: 13px; color: #5b6b78; margin-bottom: 12px;">Place <code>comment_count</code> with <code>widget="comments_button"</code> inside the <code>&lt;list&gt;</code> tag.</p>
+        <pre style="background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0;">&lt;record id="view_order_line_tree" model="ir.ui.view"&gt;
+  &lt;field name="model"&gt;sale.order.line&lt;/field&gt;
+  &lt;field name="arch" type="xml"&gt;
+    &lt;list&gt;
+      &lt;field name="product_id"/&gt;
+      &lt;field name="price_unit"/&gt;
+      &lt;field name="comment_count"
+             widget="comments_button"
+             string="Comments"
+             optional="show"/&gt;
+    &lt;/list&gt;
+  &lt;/field&gt;
+&lt;/record&gt;</pre>
+    </div>
+
+    <div style="background: #fff8ea; border-radius: 12px; padding: 22px 26px;">
+        <div style="font-weight: 700; margin-bottom: 8px; color: #7a5200;">3. Add this module as a dependency, then upgrade</div>
+        <pre style="background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0 0 12px 0;">{
+    'name': 'My Module',
+    'depends': ['sale', 'tree_comments_widget'],
+    'data': ['views/sale_order_line_views.xml'],
+}</pre>
+        <pre style="background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px 18px; font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 0;"># from your Odoo root
+python odoo-bin -d &lt;your_db&gt; -u my_module --stop-after-init</pre>
+    </div>
+
+    <!-- Mixin API reference -->
+    <h2 style="font-size: 22px; font-weight: 700; margin: 36px 0 18px 0; color: #3a1f6e;">Mixin API Reference</h2>
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+        <tr style="background: #f1f3f5;">
+            <td style="padding: 10px 14px; font-weight: 700; border-bottom: 2px solid #dee2e6;">Item</td>
+            <td style="padding: 10px 14px; font-weight: 700; border-bottom: 2px solid #dee2e6;">Type</td>
+            <td style="padding: 10px 14px; font-weight: 700; border-bottom: 2px solid #dee2e6;">Description</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 14px; border-bottom: 1px solid #f1f3f5;"><code>comment_count</code></td>
+            <td style="padding: 10px 14px; border-bottom: 1px solid #f1f3f5;"><span style="background: #e7f1ff; color: #0d6efd; border-radius: 4px; padding: 1px 6px; font-size: 12px; font-weight: 600;">Integer (computed)</span></td>
+            <td style="padding: 10px 14px; border-bottom: 1px solid #f1f3f5;">Number of chatter messages of type <code>comment</code> or <code>email</code> for the record. Not stored in DB.</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 14px;"><code>_compute_comment_count</code></td>
+            <td style="padding: 10px 14px;">Method</td>
+            <td style="padding: 10px 14px;">Counts <code>mail.message</code> records matching <code>res_id</code> + <code>model</code>.</td>
+        </tr>
+    </table>
+
+    <!-- Why teams use it -->
+    <div style="background: linear-gradient(135deg, #f1ecfb 0%, #e7f1ff 100%); border-radius: 12px; padding: 26px 30px; margin-top: 36px;">
+        <h2 style="font-size: 20px; font-weight: 700; margin: 0 0 14px 0; color: #3a1f6e;">Why teams use it</h2>
+        <ul style="margin: 0; padding-left: 20px; font-size: 14px; color: #33453f; line-height: 1.9;">
+            <li>No context switching &mdash; read and reply to a record's comments right from the list.</li>
+            <li>Works everywhere: one mixin brings comments to any model, even ones without chatter today.</li>
+            <li>Built on standard <code>mail.thread.message_post</code> &mdash; fully compatible with existing notifications and followers.</li>
+            <li>The live count badge shows at a glance which rows have unresolved discussion.</li>
+            <li>Keyboard shortcut Ctrl+Enter posts a comment; clicking outside the popup closes it automatically.</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <table style="width: 100%; border-collapse: collapse; margin-top: 30px; border-top: 1px solid #dfe3e8; padding-top: 18px;">
+        <tr>
+            <td style="padding-top: 18px; font-size: 12px; color: #7c8a94;">
+                Compatible with Odoo 19.0 &middot; Requires the Discuss (mail) app
+            </td>
+            <td style="padding-top: 18px; font-size: 12px; color: #7c8a94; text-align: right;">
+                Questions before you buy? Contact <strong>mrdudedeg@gmail.com</strong>.
+            </td>
+        </tr>
+    </table>
+
+</section>
